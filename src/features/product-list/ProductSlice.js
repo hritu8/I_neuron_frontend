@@ -4,6 +4,7 @@ import {
   fetchProductsByFilters,
   fetchBrands,
   fetchCategories,
+  fetchProductById,
 } from "./ProductApi";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   categories: [],
   totalItems: 0,
   status: "idle",
+  selectedProduct: null,
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -28,6 +30,17 @@ export const fetchAllProductsAsync = createAsyncThunk(
     return response.data;
   }
 );
+
+export const fetchProductByIdAsync = createAsyncThunk(
+  "product/fetchProductById",
+  async (id) => {
+    const response = await fetchProductById(id);
+    // The value we return becomes the `fulfilled` action payload
+
+    return response.data;
+  }
+);
+
 export const fetchProductsByFiltersAsync = createAsyncThunk(
   "product/fetchProductsByFilters",
   async ({ filter, sort, pagination }) => {
@@ -97,6 +110,13 @@ export const productSlice = createSlice({
       .addCase(fetchCategoriesAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.categories = action.payload;
+      })
+      .addCase(fetchProductByIdAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchProductByIdAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.selectedProduct = action.payload;
       });
   },
 });
@@ -107,6 +127,8 @@ export const { increment } = productSlice.actions;
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectAllProducts = (state) => state.product.products;
+export const selectProductById = (state) => state.product.selectedProduct;
+
 export const selectBrands = (state) => state.product.brands;
 export const selectCategories = (state) => state.product.categories;
 export const selectTotalItems = (state) => state.product.totalItems;
