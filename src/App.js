@@ -19,11 +19,16 @@ import CartPage from "./pages/CartPage";
 import CheckOutPage from "./pages/CheckOutPage";
 import ProductDetails from "./features/product-list/components/ProductDetails";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
+import Protected from "./features/auth/Components/Protected";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: (
+      <Protected>
+        <Home></Home>
+      </Protected>
+    ),
   },
   {
     path: "/login",
@@ -39,11 +44,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/checkout",
-    element: <CheckOutPage></CheckOutPage>,
+    element: (
+      <Protected>
+        {" "}
+        <CheckOutPage></CheckOutPage>
+      </Protected>
+    ),
   },
   {
     path: "/product-details/:id",
-    element: <ProductDetailsPage></ProductDetailsPage>,
+    element: (
+      <Protected>
+        <ProductDetailsPage></ProductDetailsPage>
+      </Protected>
+    ),
   },
 ]);
 
