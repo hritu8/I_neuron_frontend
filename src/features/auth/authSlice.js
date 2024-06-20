@@ -25,9 +25,10 @@ export const createUserAsync = createAsyncThunk(
 export const checkUserAsync = createAsyncThunk(
   "counter/checkUser",
   async (loginInfo) => {
+    console.log("loginInfo", loginInfo);
     const response = await checkUser(loginInfo);
     // The value we return becomes the `fulfilled` action payload
-
+     
     return response.data;
   }
 );
@@ -49,7 +50,7 @@ export const authSlice = createSlice({
       })
       .addCase(createUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.loggedInUser += action.payload;
+        state.loggedInUser = action.payload;
       })
       .addCase(checkUserAsync.pending, (state) => {
         state.status = "loading";

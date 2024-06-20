@@ -8,7 +8,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
   const error = useSelector(selectError);
-
+  console.log("user", user);
   const {
     register,
     handleSubmit,
@@ -16,6 +16,8 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log("login", data);
+
     dispatch(checkUserAsync({ email: data.email, password: data.password }));
   };
 
