@@ -88,7 +88,7 @@ export default function ProductList() {
     }
 
     setFilter(newFilter);
-    console.log(newFilter); // Log the new filter state
+   
     // dispatch(fetchProductsByFiltersAsync(newFilter));
   };
 

@@ -8,18 +8,14 @@ export default function Login() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
   const error = useSelector(selectError);
-  console.log("user", user);
+ 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("login", data);
-
-    dispatch(checkUserAsync({ email: data.email, password: data.password }));
-  };
+  
 
   return (
     <>
@@ -38,7 +34,9 @@ export default function Login() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit((data)=>{
+              dispatch(checkUserAsync({email:data.email,password:data.password}))
+            })}
             noValidate
             className="space-y-6"
             method="POST"

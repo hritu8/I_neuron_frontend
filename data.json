@@ -1950,141 +1950,67 @@
     {
       "id": "7520",
       "email": "rajhritu06@gmail.com",
-      "password": "12345Qw@"
+      "password": "12345Qw@",
+      "addresses":[]
     },
     {
       "id": "3a5f",
       "email": "nishant06@gmail.com",
-      "password": "12345Qw@"
+      "password": "12345Qw@",
+      "addresses":[]
     },
     {
       "id": "7bb3",
       "email": "hritu06@gmail.com",
-      "password": "Qwerty123@"
+      "password": "Qwerty123@","addresses":[]
     },
     {
       "id": "9b0e",
       "email": "demo@gmail.com",
-      "password": "Qwerty123@"
+      "password": "Qwerty123@","addresses":[]
     },
     {
       "id": "0d4c",
       "email": "mummy@gmail.com",
-      "password": "Mummy@123"
+      "password": "Mummy@123","addresses":[]
     },
     {
       "id": "b43c",
       "email": "hrituRaj@gmail.com",
-      "password": "12345Qw@"
+      "password": "12345Qw@",
+      "addresses":[]
     },
     {
       "id": "5413",
       "email": "papa@gmail.com",
-      "password": "12345Qw@"
+      "password": "12345Qw@","addresses":[]
     },
     {
       "id": "f555",
       "email": "dadi@gmail.com",
-      "password": "12345Qw@"
-    },
-    {
-      "id": "6fc6",
-      "email": "rajhritu06@gmail.com",
-      "password": "12345Qw@"
-    },
-    {
-      "id": "f814",
-      "email": "dada@gmail.com",
-      "password": "12345Qw@"
-    },
-    {
-      "id": "1039",
-      "email": "dada@gmail.com",
-      "password": "12345Qw@"
-    },
-    {
-      "id": "3c16",
-      "email": "laggye@gmail.com",
-      "password": "12345Qw@"
+      "password": "12345Qw@","addresses":[]
     }
+    
   ],
   "cart": [
     {
-      "id": "1",
-      "title": "iPhone 9",
-      "description": "An apple mobile which is nothing like apple",
-      "price": 549,
-      "discountPercentage": 12.96,
-      "rating": 4.69,
-      "stock": 94,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/1/1.jpg",
-        "https://i.dummyjson.com/data/products/1/2.jpg",
-        "https://i.dummyjson.com/data/products/1/3.jpg",
-        "https://i.dummyjson.com/data/products/1/4.jpg",
-        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-      ],
-      "quantity": 2
-    },
-    {
-      "id": "9",
-      "title": "Infinix INBOOK",
-      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
-      "price": 1099,
-      "discountPercentage": 11.83,
-      "rating": 4.54,
-      "stock": 96,
-      "brand": "Infinix",
-      "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/9/1.jpg",
-        "https://i.dummyjson.com/data/products/9/2.png",
-        "https://i.dummyjson.com/data/products/9/3.png",
-        "https://i.dummyjson.com/data/products/9/4.jpg",
-        "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
-      ],
-      "quantity": 1
-    },
-    {
-      "id": "5",
-      "title": "Huawei P30",
-      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-      "price": 499,
-      "discountPercentage": 10.58,
+      "id": "b956",
+      "title": "Samsung Universe 9",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1249,
+      "discountPercentage": 15.46,
       "rating": 4.09,
-      "stock": 32,
-      "brand": "Huawei",
+      "stock": 36,
+      "brand": "Samsung",
       "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/5/1.jpg",
-        "https://i.dummyjson.com/data/products/5/2.jpg",
-        "https://i.dummyjson.com/data/products/5/3.jpg"
-      ],
-      "quantity": 1
-    },
-    {
-      "id": "10",
-      "title": "HP Pavilion 15-DK1056WM",
-      "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
-      "price": 1099,
-      "discountPercentage": 6.18,
-      "rating": 4.43,
-      "stock": 89,
-      "brand": "HP Pavilion",
-      "category": "laptops",
-      "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
-      "images": [
-        "https://i.dummyjson.com/data/products/10/1.jpg",
-        "https://i.dummyjson.com/data/products/10/2.jpg",
-        "https://i.dummyjson.com/data/products/10/3.jpg",
-        "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
+        "https://i.dummyjson.com/data/products/3/1.jpg"
       ],
       "quantity": 1
     }
+  ],
+  "orders":[
+    
   ]
 }
