@@ -1951,46 +1951,50 @@
       "id": "7520",
       "email": "rajhritu06@gmail.com",
       "password": "12345Qw@",
-      "addresses":[]
+      "addresses": []
     },
     {
       "id": "3a5f",
       "email": "nishant06@gmail.com",
       "password": "12345Qw@",
-      "addresses":[]
+      "addresses": []
     },
     {
       "id": "7bb3",
       "email": "hritu06@gmail.com",
-      "password": "Qwerty123@","addresses":[]
+      "password": "Qwerty123@",
+      "addresses": []
     },
     {
       "id": "9b0e",
       "email": "demo@gmail.com",
-      "password": "Qwerty123@","addresses":[]
+      "password": "Qwerty123@",
+      "addresses": []
     },
     {
       "id": "0d4c",
       "email": "mummy@gmail.com",
-      "password": "Mummy@123","addresses":[]
+      "password": "Mummy@123",
+      "addresses": []
     },
     {
       "id": "b43c",
       "email": "hrituRaj@gmail.com",
       "password": "12345Qw@",
-      "addresses":[]
+      "addresses": []
     },
     {
       "id": "5413",
       "email": "papa@gmail.com",
-      "password": "12345Qw@","addresses":[]
+      "password": "12345Qw@",
+      "addresses": []
     },
     {
       "id": "f555",
       "email": "dadi@gmail.com",
-      "password": "12345Qw@","addresses":[]
+      "password": "12345Qw@",
+      "addresses": []
     }
-    
   ],
   "cart": [
     {
@@ -2007,10 +2011,8 @@
       "images": [
         "https://i.dummyjson.com/data/products/3/1.jpg"
       ],
-      "quantity": 1
+      "quantity": 3
     }
   ],
-  "orders":[
-    
-  ]
+  "orders": []
 }
