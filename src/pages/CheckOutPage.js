@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteItemFromCartAsync, selectItems, updateItemAsync } from "../features/cart/cartSlice";
 import { selectLoggedInUser, updateUserAsync } from "../features/auth/authSlice";
 import { useForm } from "react-hook-form";
-import { createOrderAsync } from "../features/order/orderSlice";
+import { createOrderAsync, selectCurrentOrder } from "../features/order/orderSlice";
 
 
 
@@ -24,6 +24,7 @@ const CheckOutPage = () => {
   const dispatch=useDispatch();
   const items=useSelector(selectItems);
   const user=useSelector(selectLoggedInUser);
+  const currentOrder=useSelector(selectCurrentOrder);
   console.log("user address",user.addresses);
   const {
     register,
@@ -63,7 +64,7 @@ const CheckOutPage = () => {
   }
 
   const handleOrder=(e)=>{
-    const order={items,user,totalAmount,totalItemsCount,paymentMethod,selectedAddress};
+    const order={items,user,totalAmount,totalItemsCount,paymentMethod,selectedAddress,status:"pending"};
     dispatch(createOrderAsync(order));
 
     // redirect to order-success page
@@ -74,6 +75,7 @@ const CheckOutPage = () => {
 
   return (<>
     {user && !items.length && <Navigate to="/" replace={true}></Navigate>}
+    {user && currentOrder && <Navigate to={`/order-success/${currentOrder.id}`} replace={true}></Navigate>}
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
         <div className="lg:col-span-3">
