@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {  fetchLoggedInUserOrders } from "./userAPI";
+import {  fetchLoggedInUserOrders, updateUser,fetchLoggedInUser } from "./userAPI";
 
 const initialState = {
-  value: 0,
+  userInfo:null,
   userOrders:[],
   status: "idle",
 };
@@ -14,8 +14,25 @@ const initialState = {
 // typically used to make async requests.
 export const fetchLoggedInUserOrdersAsync = createAsyncThunk(
   "counter/fetchLoggedInUserOrders",
-  async (userId) => {
-    const response = await fetchLoggedInUserOrders(userId);
+  async (id) => {
+    const response = await fetchLoggedInUserOrders(id);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data; 
+  }
+);
+export const fetchLoggedInUserAsync = createAsyncThunk(
+  "counter/fetchLoggedInUser",
+  async (id) => {
+    const response = await fetchLoggedInUser(id);
+    // The value we return becomes the `fulfilled` action payload
+    return response.data; 
+  }
+);
+
+export const UpdateUserAsync = createAsyncThunk(
+  "counter/UpdateUser",
+  async (id) => {
+    const response = await updateUser(id);
     // The value we return becomes the `fulfilled` action payload
     return response.data; 
   }
@@ -39,7 +56,21 @@ export const userSlice = createSlice({
       .addCase(fetchLoggedInUserOrdersAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.userOrders = action.payload;
-      });
+      })
+      .addCase(UpdateUserAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(UpdateUserAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.userOrders = action.payload;
+      })
+      .addCase(fetchLoggedInUserAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchLoggedInUserAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.userInfo = action.payload;
+      })
   },
 });
 
@@ -49,6 +80,7 @@ export const { increment } = userSlice.actions;
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectUserOrders=(state)=>state.user.userOrders ;
+export const selectUserInfo=(state)=>state.user.userInfo ;
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.
 

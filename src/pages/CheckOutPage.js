@@ -15,6 +15,7 @@ import { deleteItemFromCartAsync, selectItems, updateItemAsync } from "../featur
 import { selectLoggedInUser, updateUserAsync } from "../features/auth/authSlice";
 import { useForm } from "react-hook-form";
 import { createOrderAsync, selectCurrentOrder } from "../features/order/orderSlice";
+import { selectUserInfo } from "../features/user/userSlice";
 
 
 
@@ -23,7 +24,7 @@ const CheckOutPage = () => {
   const [open, setOpen] = useState(true);
   const dispatch=useDispatch();
   const items=useSelector(selectItems);
-  const user=useSelector(selectLoggedInUser);
+  const user=useSelector(selectUserInfo);
   const currentOrder=useSelector(selectCurrentOrder);
   console.log("user address",user.addresses);
   const {
