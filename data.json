@@ -1838,6 +1838,114 @@
         "https://i.dummyjson.com/data/products/100/3.jpg",
         "https://i.dummyjson.com/data/products/100/thumbnail.jpg"
       ]
+    },
+    {
+      "id": "5ce3",
+      "title": "MackBook",
+      "description": "pro chip",
+      "brand": "Golden",
+      "category": "electronics",
+      "price": "99999",
+      "discountPercentage": "7",
+      "stock": "96",
+      "thumbnail": "http://localhost:3000/admin/product-form",
+      "images": [
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "f023",
+      "title": "MackBook",
+      "description": "pro chip",
+      "brand": "Golden",
+      "category": "electronics",
+      "price": "99999",
+      "discountPercentage": "7",
+      "stock": "96",
+      "thumbnail": "http://localhost:3000/admin/product-form",
+      "images": [
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "61a0",
+      "title": "mackbook",
+      "description": "pro chip",
+      "brand": "Golden",
+      "category": "electronics",
+      "price": "99953",
+      "discountPercentage": "7",
+      "stock": "96",
+      "thumbnail": "http://localhost:3000/admin/product-form",
+      "images": [
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "f07b",
+      "title": "Mackbook pro",
+      "description": "pro chip v1",
+      "brand": "Boho Decor",
+      "category": "electronics",
+      "price": "99764",
+      "discountPercentage": "6",
+      "stock": "65",
+      "thumbnail": "http://localhost:3000/admin/product-form",
+      "images": [
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "66d9",
+      "title": "mackbook",
+      "description": "pro chip",
+      "brand": "Boho Decor",
+      "category": "electronics",
+      "price": "99765",
+      "discountPercentage": "4",
+      "stock": "87",
+      "thumbnail": "http://localhost:3000/admin/product-form",
+      "images": [
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "1148",
+      "title": "mackbook",
+      "description": "pro chip v1",
+      "brand": "Boho Decor",
+      "category": "electronics",
+      "price": "99786",
+      "discountPercentage": "6",
+      "stock": "97",
+      "thumbnail": "http://localhost:3000/admin/product-form",
+      "images": [
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form",
+        "http://localhost:3000/admin/product-form"
+      ],
+      "rating": 0
     }
   ],
   "brands": [
@@ -1951,13 +2059,15 @@
       "id": "7520",
       "email": "rajhritu06@gmail.com",
       "password": "12345Qw@",
-      "addresses": []
+      "addresses": [],
+      "role": "admin"
     },
     {
       "id": "3a5f",
       "email": "nishant06@gmail.com",
       "password": "12345Qw@",
-      "addresses": []
+      "addresses": [],
+      "role": "user"
     },
     {
       "id": "7bb3",

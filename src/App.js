@@ -31,6 +31,11 @@ import UserProfile from "./features/user/Components/UserProfile";
 import { fetchLoggedInUserAsync } from "./features/user/userSlice";
 import LogOut from "./features/auth/Components/LogOut";
 import ForgotPassWordPage from "./pages/LoginPage copy";
+import ProtectedAdmin from "./features/auth/Components/ProtectedAdmin";
+import AdminProductDetailsPage from "./pages/AdminProductDetailsPage";
+import AdminHomePage from "./pages/AdminHomePage";
+import ProductForm from "./features/admin/components/ProductForm";
+import AdminProductFormPage from "./pages/AdminProductFormPage";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +44,14 @@ const router = createBrowserRouter([
       <Protected>
         <Home></Home>
       </Protected>
+    ),
+  },
+  {
+    path: "/admin",
+    element: (
+      <ProtectedAdmin>
+        <AdminHomePage></AdminHomePage>
+      </ProtectedAdmin>
     ),
   },
   {
@@ -68,6 +81,30 @@ const router = createBrowserRouter([
       <Protected>
         <ProductDetailsPage></ProductDetailsPage>
       </Protected>
+    ),
+  },
+  {
+    path: "/admin/product-details/:id",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductDetailsPage></AdminProductDetailsPage>
+      </ProtectedAdmin>
+    ),
+  },
+  {
+    path: "/admin/product-form",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductFormPage></AdminProductFormPage>
+      </ProtectedAdmin>
+    ),
+  },
+  {
+    path: "/admin/product-form/edit/:id",
+    element: (
+      <ProtectedAdmin>
+        <AdminProductFormPage></AdminProductFormPage>
+      </ProtectedAdmin>
     ),
   },
   {
