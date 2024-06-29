@@ -5,6 +5,7 @@ import {
   deleteItemFromCartAsync,
   increment,
   incrementAsync,
+  selectCartStatus,
   selectItems,
   updateItemAsync,
 } from "./cartSlice";
@@ -20,11 +21,14 @@ import {
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, Navigate } from "react-router-dom";
 import { discountedPrice } from "../../app/constants";
+import Modal from "../common/Modal";
 
 export default function Cart() {
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(true);
   const items = useSelector(selectItems);
+  const status = useSelector(selectCartStatus);
+  const [openModal, setOpenModal] = useState(null);
+  const [open, setOpen] = useState(false);
 
   const totalAmount = items.reduce(
     (amount, item) => discountedPrice(item) * item.quantity + amount,
@@ -46,6 +50,7 @@ export default function Cart() {
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
+
       <div>
         <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6 ">
@@ -98,8 +103,20 @@ export default function Cart() {
                         </div>
 
                         <div className="flex">
+                          <Modal
+                            title={`Delete ${product.title}`}
+                            message="Are you sure you want to delete this cart item"
+                            dangerOption="Delete"
+                            cancelOption="Cancel"
+                            dangerAction={(e) => handleRemove(e, product.id)}
+                            cancelAction={() => setOpenModal(null)}
+                            showModal={openModal === product.id}
+                          ></Modal>
+
                           <button
-                            onClick={(e) => handleRemove(e, product.id)}
+                            onClick={(e) => {
+                              setOpenModal(product.id);
+                            }}
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >

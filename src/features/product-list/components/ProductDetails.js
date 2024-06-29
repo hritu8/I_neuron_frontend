@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import { selectLoggedInUser } from "../../auth/authSlice";
 import { discountedPrice } from "../../../app/constants";
+import { useAlert } from "react-alert";
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -36,6 +37,7 @@ function classNames(...classes) {
 
 export default function ProductDetails() {
   const dispatch = useDispatch();
+  const alert = useAlert();
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const user = useSelector(selectLoggedInUser);
@@ -54,7 +56,9 @@ export default function ProductDetails() {
       };
       delete newItem["id"];
       dispatch(addToCartAsync(newItem));
+      alert.success("Item added to cart!");
     } else {
+      alert.info("Item already in cart!");
     }
   };
 

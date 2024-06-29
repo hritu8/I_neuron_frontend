@@ -37,6 +37,8 @@ import AdminHomePage from "./pages/AdminHomePage";
 import ProductForm from "./features/admin/components/ProductForm";
 import AdminProductFormPage from "./pages/AdminProductFormPage";
 import AdminOrdersPage from "./pages/AdminOrdersPage";
+import { positions, Provider } from "react-alert";
+import AlertTemplate from "react-alert-template-basic";
 
 const router = createBrowserRouter([
   {
@@ -118,42 +120,34 @@ const router = createBrowserRouter([
   },
   {
     path: "/order-success/:id",
-    element: (
-      <OrderSuccessPage></OrderSuccessPage>
-    ),
+    element: <OrderSuccessPage></OrderSuccessPage>,
   },
   {
     path: "/orders",
-    element: (
-     <UserOrdersPage></UserOrdersPage>
-    ),
+    element: <UserOrdersPage></UserOrdersPage>,
   },
   {
     path: "/profile",
-    element: (
-     <UserProfile></UserProfile>
-    ),
+    element: <UserProfile></UserProfile>,
   },
   {
     path: "/logout",
-    element: (
-     <LogOut></LogOut>
-    ),
+    element: <LogOut></LogOut>,
   },
   {
     path: "/forgot-password",
-    element: (
-     <ForgotPassWordPage></ForgotPassWordPage>
-    ),
+    element: <ForgotPassWordPage></ForgotPassWordPage>,
   },
   {
     path: "*",
-    element: (
-      <PageNotFound></PageNotFound>
-    ),
+    element: <PageNotFound></PageNotFound>,
   },
-
 ]);
+
+const options = {
+  timeout: 5000,
+  position: positions.BOTTOM_LEFT,
+};
 
 function App() {
   const dispatch = useDispatch();
@@ -161,12 +155,15 @@ function App() {
   useEffect(() => {
     if (user) {
       dispatch(fetchItemsByUserIdAsync(user.id));
-      dispatch( fetchLoggedInUserAsync(user.id)  );
+      dispatch(fetchLoggedInUserAsync(user.id));
     }
   }, [dispatch, user]);
+
   return (
     <div>
-      <RouterProvider router={router} />
+      <Provider template={AlertTemplate} {...options}>
+        <RouterProvider router={router} />
+      </Provider>
     </div>
   );
 }
