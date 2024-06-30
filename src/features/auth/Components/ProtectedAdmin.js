@@ -7,7 +7,7 @@ const ProtectedAdmin = ({ children }) => {
   if (!user) {
     return <Navigate to="/login" replace={true} />;
   }
-  if(user && user[0].role!== "admin") {
+  if (user && user.role !== "admin") {
     return <Navigate to="/" replace={true} />;
   }
   return children;

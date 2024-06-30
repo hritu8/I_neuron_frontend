@@ -14,14 +14,11 @@ export default function SignUp() {
     formState: { errors },
   } = useForm();
 
-  const user=useSelector(selectLoggedInUser);
-  
-
- 
+  const user = useSelector(selectLoggedInUser);
 
   return (
     <>
-    {user && <Navigate to="/" replace={true} />}
+      {user && <Navigate to="/" replace={true} />}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -39,10 +36,20 @@ export default function SignUp() {
             noValidate
             className="space-y-6"
             onSubmit={handleSubmit((data) => {
+              console.log({
+                email: data.email,
+                password: data.password,
+                addresses: [],
+                role: "user",
+              });
               dispatch(
-                createUserAsync({ email: data.email, password: data.password,addresses:[],role:"user" })
+                createUserAsync({
+                  email: data.email,
+                  password: data.password,
+                  addresses: [],
+                  role: "user",
+                })
               );
-            
             })}
           >
             <div>
@@ -80,12 +87,12 @@ export default function SignUp() {
                   Password
                 </label>
                 <div className="text-sm">
-                <Link
+                  <Link
                     to="/forgot-password"
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
-                  </Link> 
+                  </Link>
                 </div>
               </div>
               <div className="mt-2">

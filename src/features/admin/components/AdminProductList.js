@@ -471,7 +471,7 @@ function Pagination({ page, setPage, handlePage, totalItems = 55 }) {
             {Array.from({ length: totalPages }).map((el, index) => (
               <div
                 key={index}
-                onClick={() => handlePage(index + 1)}
+                onClick={(e) => handlePage(index + 1)}
                 aria-current="page"
                 className={`relative cursor-pointer z-10 inline-flex items-center ${
                   index + 1 === page
@@ -505,7 +505,7 @@ function ProductGrid({ products }) {
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {products &&
               products.map((product) => (
-                <div>
+                <div key={product.id}>
                   <Link to={`/product-details/${product.id}`}>
                     <div
                       key={product.id}

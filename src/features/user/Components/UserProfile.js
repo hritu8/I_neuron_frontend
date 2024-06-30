@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 export default function UserProfile() {
   
   const dispatch = useDispatch();
-  const user = useSelector(selectUserInfo); 
+  const userInfo = useSelector(selectuserInfo); 
   const [selectedAddressIndex, setSelectedAddressIndex] = useState(-1);
   const [showAddAddressForm, setShowAddAddressForm] = useState(false);
   const {
@@ -19,30 +19,30 @@ export default function UserProfile() {
   } = useForm();
 
   const handleEdit=(addressUpdate,index)=>{
-    //edit user profileUpdateUserAsync({...user,addresses:[...user.addresses,data]})
-    const newuser={...user,addresses:[...user.addresses]};
+    //edit userInfo profileUpdateuserInfoAsync({...userInfo,addresses:[...userInfo.addresses,data]})
+    const newuser={...userInfo   ,addresses:[...userInfo.addresses]};
     newuser.addresses.splice(index,1,addressUpdate);
-    dispatch(UpdateUserAsync(newuser));
+    dispatch(UpdateuserInfoAsync(newuser));
     setSelectedAddressIndex(-1);
   }
   const handleEditForm=(index)=>{
     setSelectedAddressIndex(index);
-    setValue("name", user.addresses[index].name);
-    setValue("email", user.addresses[index].email);
-    setValue("city", user.addresses[index].city);
-    setValue("state", user.addresses[index].state);
-    setValue("pinCode", user.addresses[index].pinCode);
-    setValue("phone", user.addresses[index].phone);
-    setValue("street", user.addresses[index].street);
+    setValue("name", userInfo.addresses[index].name);
+    setValue("email", userInfo.addresses[index].email);
+    setValue("city", userInfo.addresses[index].city);
+    setValue("state", userInfo.addresses[index].state);
+    setValue("pinCode", userInfo.addresses[index].pinCode);
+    setValue("phone", userInfo.addresses[index].phone);
+    setValue("street", userInfo.addresses[index].street);
   }
   const handleRemove=(e,index)=>{
-    const newuser={...user,addresses:[...user.addresses]};
+    const newuser={...userInfo,addresses:[...userInfo.addresses]};
     newuser.addresses.splice(index,1);
-    dispatch(UpdateUserAsync(newuser));
+    dispatch(UpdateuserAsync(newuser));
   }
   const handleAdd=(data)=>{
-    const newuser={...user,addresses:[...user.addresses,data]};
-    dispatch(UpdateUserAsync(newuser));
+    const newuser={...userInfo,addresses:[...userInfo.addresses,data]};
+    dispatch(UpdateuserAsync(newuser));
     setShowAddAddressForm(false);
   }
 
@@ -52,10 +52,10 @@ export default function UserProfile() {
         <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6 ">
             <h1 className="text-4xl my-5 font-bold tacking-tight text-gray-900">
-               Name : {user.name ? user.name : "No name found"  } 
+               Name : {userInfo.name ? userInfo.name : "No name found"  } 
             </h1>
             <h1 className="text-xl my-5 font-bold tacking-tight text-red-900">
-               Email Address : {user.email ? user.email : "No email address found"}
+               Email Address : {userInfo.email ? userInfo.email : "No email address found"}
             </h1>
             
           </div>
@@ -245,8 +245,8 @@ export default function UserProfile() {
             <p className="mt-0.5 text-sm text-gray-500">
               Your Addresses :
             </p>
-            {user.addresses.map((address,index) => {
-              <div>
+            {userInfo.addresses.map((address,index) => {
+              <div key={index}>
                 {selectedAddressIndex===index ?  
                 <form className="bg-white px-5 py-12 mt-12 "  onSubmit={handleSubmit((data)=>{
             
@@ -422,7 +422,7 @@ export default function UserProfile() {
                 Choose from existing addresses
               </p>
               <ul role="list">
-                {user?.addresses?.map((address,index) => (
+                {userInfo?.addresses?.map((address,index) => (
                   <li
                     key={address.index}
                     className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"

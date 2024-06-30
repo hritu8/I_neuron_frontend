@@ -31,7 +31,7 @@ export default function Cart() {
   const [open, setOpen] = useState(false);
 
   const totalAmount = items.reduce(
-    (amount, item) => discountedPrice(item) * item.quantity + amount,
+    (amount, item) => discountedPrice(item.product) * item.quantity + amount,
     0
   );
   const totalItemsCount = items.reduce(
@@ -41,7 +41,7 @@ export default function Cart() {
 
   const handleQuantity = (e, item) => {
     e.preventDefault();
-    dispatch(updateItemAsync({ ...item, quantity: +e.target.value }));
+    dispatch(updateItemAsync({ id: item.id, quantity: +e.target.value }));
   };
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
@@ -59,12 +59,12 @@ export default function Cart() {
             </h1>
             <div className="flow-root">
               <ul role="list" className="-my-6 divide-y divide-gray-200">
-                {items.map((product) => (
-                  <li key={product.id} className="flex py-6">
+                {items.map((item) => (
+                  <li key={item.product.id} className="flex py-6">
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                       <img
-                        src={product.thumbnail}
-                        alt={product.title}
+                        src={item.product.thumbnail}
+                        alt={item.product.title}
                         className="h-full w-full object-cover object-center"
                       />
                     </div>
@@ -73,12 +73,12 @@ export default function Cart() {
                       <div>
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <h3>
-                            <a href={product.href}>{product.title}</a>
+                            <a href={item.product.id}>{item.product.title}</a>
                           </h3>
-                          <p className="ml-4">${discountedPrice(product)}</p>
+                          <p className="ml-4">${discountedPrice(item.product)}</p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500">
-                          {product.brand}
+                          {item.product.brand}
                         </p>
                       </div>
                       <div className="flex flex-1 items-end justify-between text-sm">
@@ -90,8 +90,8 @@ export default function Cart() {
                             Qty
                           </label>
                           <select
-                            onChange={(e) => handleQuantity(e, product)}
-                            value={product.quantity}
+                            onChange={(e) => handleQuantity(e, item)}
+                            value={item.product.quantity}
                           >
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -104,18 +104,18 @@ export default function Cart() {
 
                         <div className="flex">
                           <Modal
-                            title={`Delete ${product.title}`}
+                            title={`Delete ${item.product.title}`}
                             message="Are you sure you want to delete this cart item"
                             dangerOption="Delete"
                             cancelOption="Cancel"
-                            dangerAction={(e) => handleRemove(e, product.id)}
+                            dangerAction={(e) => handleRemove(e, item.id)}
                             cancelAction={() => setOpenModal(null)}
-                            showModal={openModal === product.id}
+                            showModal={openModal === item.id}
                           ></Modal>
 
                           <button
                             onClick={(e) => {
-                              setOpenModal(product.id);
+                              setOpenModal(item.id);
                             }}
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"

@@ -1,4 +1,4 @@
-import React, { Children, Fragment } from "react";
+import React, { Fragment } from "react";
 
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
@@ -49,7 +49,7 @@ const Navbar = ({ children }) => {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) =>
-                          item[user[0].role] ? (
+                          item[user.role] ? (
                             <Link
                               key={item.name}
                               to={item.link}
